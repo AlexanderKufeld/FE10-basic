@@ -5,20 +5,17 @@ function showUsersTable(persons = []) {
     });
 
     let maxAge = 0;
+    let minAge = 0;
     for (let i = 0; i < persons.length; i++) {
         if (persons[i].age = sortedPersons) {
             maxAge = persons[i].age;
+        }else{
+            return minAge = persons[i].age;
         }
     }
     console.log('Max age of person:' + maxAge);
     document.getElementById("max").innerHTML = 'Max age: ' + maxAge;
 
-    let minAge = 0;
-    for (let i = 0; i < persons.length; i++) {
-        if (persons[i].age != sortedPersons) {
-            minAge = persons[i].age;
-        }
-    }
     console.log('Min age of person:' + minAge);
     document.getElementById("min").innerHTML = 'Min age: ' + minAge;
 
