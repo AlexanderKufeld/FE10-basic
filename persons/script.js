@@ -32,14 +32,12 @@ document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
 console.log('Average age of person:' + averageAge + ', max age: ' + maxAge + ', min age: ' + minAge);
 document.querySelector('tfoot div.alert').innerHTML = 'Average age: <b>' + averageAge + '</b>, max age: <b>' + maxAge + '</b>, min age: <b>' + minAge + '</b>';
 
-
 const personsNumber = prompt('Please enter the number of persons:');
 console.log(personsNumber);
 
 for (let i = 0; i < personsNumber; i++) {
     setTimeout(function() {
         const person = {};
-       
         person.firstName = prompt('Please enter Firstname of  ' + (i + 1) + ' person');
         person.lastName = prompt('Please enter Lastname of ' + (i + 1) + ' person');
         person.age = prompt('Please enter Age of ' + (i + 1) + 'person');
