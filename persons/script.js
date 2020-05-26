@@ -1,50 +1,70 @@
-function showUsersTable(persons = []) {
-    console.log(persons);
-    const sortedPersons = persons.sort(function (a, b) {
-        return a.age - b.age;
-    });
-
-    let maxAge = 0;
-    let minAge = 0;
-    for (let i = 0; i < persons.length; i++) {
-        if (persons[i].age = sortedPersons) {
-            maxAge = persons[i].age;
-        }else{
-            return minAge = persons[i].age;
-        }
-    }
-    console.log('Max age of person:' + maxAge);
-    document.getElementById("max").innerHTML = 'Max age: ' + maxAge;
-
-    console.log('Min age of person:' + minAge);
-    document.getElementById("min").innerHTML = 'Min age: ' + minAge;
+function showUsersTable(sortedPersons = []) {
 
     let averageAge = 0;
+    let minAge = sortedPersons[0].age;
+    let maxAge = sortedPersons[0].age;
     let innerHtmlTableBody = '';
-    for (let i = 0; i < persons.length; i++) {
-        innerHtmlTableBody += '<tr><td>' + sortedPersons[i].lastName + '</td><td>' + sortedPersons[i].firstName + '</td><td>' + sortedPersons[i].age + '</td></tr>';
-        console.log('Person ' + (i + 1) + ': LastName = ' + sortedPersons[i].lastName + ': FirstName = ' + sortedPersons[i].firstName + ' Age = ' + sortedPersons[i].age);
-        averageAge += + sortedPersons[i].age;
+
+    for (let i = 0; i < sortedPersons.length; i++) {
+        innerHtmlTableBody += '<tr><td>' + sortedPersons[i].name + '</td><td>' + sortedPersons[i].age + '</td><td>' + sortedPersons[i].city + '</td></tr>';
+        averageAge += +sortedPersons[i].age;
+        if (sortedPersons[i].age > maxAge)
+            maxAge = sortedPersons[i].age;
+        if (sortedPersons[i].age < minAge)
+            minAge = sortedPersons[i].age;
     }
-    averageAge /= +persons.length;
+    averageAge /= persons.length;
 
-document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
-console.log('Average age of person:' + averageAge + ', max age: ' + maxAge + ', min age: ' + minAge);
-document.querySelector('tfoot div.alert').innerHTML = 'Average age: <b>' + averageAge + '</b>, max age: <b>' + maxAge + '</b>, min age: <b>' + minAge + '</b>';
-
-const personsNumber = prompt('Please enter the number of persons:');
-console.log(personsNumber);
-
-for (let i = 0; i < personsNumber; i++) {
-    setTimeout(function() {
-        const person = {};
-        person.firstName = prompt('Please enter Firstname of  ' + (i + 1) + ' person');
-        person.lastName = prompt('Please enter Lastname of ' + (i + 1) + ' person');
-        person.age = prompt('Please enter Age of ' + (i + 1) + 'person');
-        persons[i] = person;
-        for (let i = 0; i < personsNumber; i++) {
-            showUsersTable(persons);
-        }
-    }, 500);
+    document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
+    document.querySelector('tfoot div.alert').innerHTML = 'Average age: ' + averageAge + ' Min age: ' + minAge + ' Max age: ' + maxAge;
 }
+
+let persons = [];
+
+let sortasc = true;
+
+const form$ = document.getElementsByTagName('form')[0];
+form$.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let person = {};
+    person.name = document.querySelector('input[name=name]').value;
+    person.age = document.querySelector('input[name=age]').value;
+    person.city = document.querySelector('input[name=city]').value;
+
+    persons.push(person);
+
+    sort(persons);
+    showUsersTable(persons);
+
+    document.querySelector('input[name=name]').value = '';
+    document.querySelector('input[name=age]').value = '';
+    document.querySelector('input[name=city]').value = '';
+});
+
+const ageHeader = document.getElementById('header_age');
+
+ageHeader.addEventListener('click', function (event) {
+
+    sortasc = !sortasc;
+
+    document.getElementById('sort').innerHTML = sortasc ? ' asc' : ' desc';
+
+    sort(persons);
+    showUsersTable(persons);
+    console.log('Age header clicked');
+});
+
+
+function sort(person = []) {
+
+    person.sort(function (a, b) {
+        let sort = 0;
+        if (sortasc) {
+            sort = a.age - b.age;
+        } else {
+            sort = b.age - a.age;
+        }
+        return sort;
+    });
 }
