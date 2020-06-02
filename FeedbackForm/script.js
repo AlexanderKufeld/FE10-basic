@@ -3,8 +3,7 @@ function showUsersTable(persons = []) {
     let innerHtmlTableBody = '';
 
     for (let i = 0; i < persons.length; i++) {
-        innerHtmlTableBody += '<tr><td>' + (i + 1) + '</td><td>' + persons[i].name + '</td><td>' + persons[i].email
-            + '</td><td>' + persons[i].feedback + '</td><td>' + persons[i].currentDate + '</td></tr>';
+        innerHtmlTableBody += '<tr><td>' + (i + 1) + '</td><td>' + persons[i].name + '</td><td>' + persons[i].email + '</td><td>' + persons[i].feedback + '</td><td>' + persons[i].currentDate + '</td></tr>';
     }
 }
 
