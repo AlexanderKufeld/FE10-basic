@@ -33,10 +33,11 @@ const form$ = document.getElementsByTagName('form')[0];
         const Date = document.getElementById('date');
 
     let clicks= 0;
-    function click() {
-    clicks += 1;
-    document.getElementById("Number of Record").innerHTML = clicks;
-    };
+
+     function click() {
+        clicks += 1;
+        document.getElementById("Number of Record").innerHTML = clicks;
+        };
 
 showUsersTable(persons);
 document.write(Date());
