@@ -7,5 +7,14 @@ document.querySelectorAll('p').forEach(function(element) {
         currentColor++;
         this.style['background-color'] = colors[currentColor % colors.length];
     });
+
 })
+
+function changeColor(param) {
+    let currentColor = 0;
+    return () => {
+        currentColor++;
+        return param.style['background-color'] = colors[currentColor % colors.length];
+    }
+}
 
