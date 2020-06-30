@@ -1,11 +1,14 @@
 /*const colors = ['white', 'red', 'green', 'blue'];
 //                 0       1       2        3  
 
-let currentColor = 0;
-document.querySelectorAll('p').forEach(function(element) {
-    element.addEventListener('click', function() {
+
+function createEventListener(i) {
+    let currentColor = 0;
+    return function() {
         currentColor++;
+        console.log("Click on " + i + " paragraph, currentColor = " + currentColor);
         this.style['background-color'] = colors[currentColor % colors.length];
+<<<<<<< HEAD
     });
 
 })
@@ -35,3 +38,21 @@ for (let i = 0; i < rNumbers.length; i++) {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
+=======
+    }
+}
+
+document.querySelectorAll('p').forEach(function(element, i) {
+    //console.log(i);
+    element.addEventListener('click', createEventListener(i));
+})
+
+var nodes = document.getElementsByTagName('button');
+for (var i = 0; i < nodes.length; i++) {
+   nodes[i].addEventListener('click', function(x) {
+        return function() {
+        console.log('You clicked element #' + x);
+        }
+   }(i));
+}
+>>>>>>> befaec76e4d852c6171ebb69c86288f410b837ed
