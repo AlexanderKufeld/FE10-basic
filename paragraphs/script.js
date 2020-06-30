@@ -17,8 +17,8 @@ function changeColor(param) {
         return param.style['background-color'] = colors[currentColor % colors.length];
     }
 }*/
-
-/*let rNumbers = document.getElementsByTagName('button');
+// first solution, t works but show all elements
+let rNumbers = document.getElementsByTagName('button');
 for (let i = 0; i < rNumbers.length; i++) {
    rNumbers[i].addEventListener('click', function Random() {
       const max = 100;
@@ -30,9 +30,8 @@ for (let i = 0; i < rNumbers.length; i++) {
          console.log('Element # ' + x + ' with random number - ' + [...uniqe]);  
       }
    }(i));
-}*/
-
-
+}
+// second solution
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
