@@ -8,7 +8,7 @@ function getWeather() {
             return response.json();
         })
         .then(function(data){
-            document.querySelector('table').innerHTML = 'Temperature in ' + checkCity + ' is ' + data.main.temp +' fahrenheit' + '<br>' + 'Wind speed: ' + data.wind.speed + ' m/s'
+            document.querySelector('table').innerHTML = 'Temperature in ' + checkCity + ' is ' + data.main.temp +' fahrenheit ' + ' <br> ' + 'Wind speed: ' + data.wind.speed + ' m/s '
         })
     }
     
