@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Weather</title>
+    <script src="script.js" defer></script>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <body class="container">
+      <br>
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+            <div class="card">
+                <div class="card-header">
+                  Fetch Weather  
+                </div>
+                <div class="card-body">
+                    <p>Enter your country:</p>
+                    <div class="input-group">
+                        <input id="country" type="text" class="form-control">
+                      </div>
+                      <br>
+                      <p>Enter your city:</p>
+                      <div class="input-group">
+                        <input id="city" type="text" class="form-control">
+                      </div>
+                      <br>
+                      <button class="btn btn-primary" onclick="getWeather()">Check weather</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm"></div>
+            <table name="weatherInput">
+
+            </table>
+        </div>
+    </body>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
